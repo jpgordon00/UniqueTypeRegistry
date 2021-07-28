@@ -17,9 +17,12 @@ class PostMode : Mode {
 }
 
 class Server : {
-  List<Mode> Modes = new List<Mode>{new PreMode(), new PostMode()};
+
+  static Server() {
+    List<Mode> Modes = new List<Mode>{new PreMode(), new PostMode()};
   
-  // do something with your list of server modes
+    // do something with your list of server modes
+  }
 }
 ```
 
@@ -31,3 +34,21 @@ class Server : {
 * Not only a cached-list of subclasses of a given type, but there's also a function to get a subclass of UniqueTypeRegistry given its classname or Type property.
     -  The "Find" and "FindAll" fuctions return a reference to the same object living in UniqueTypeRegistry.Types.
 
+## The approach using UniqueTypeRegistry
+```c#
+class Mode : UniqueTypeRegistry {
+  ...
+}
+class PreMode : Mode {
+  ...
+}
+class PostMode : Mode {
+  ...
+}
+
+class Server : {  
+  static Server() {
+    List<Mode> Modes = UniqueTypeRegistry.FindAll<Mode>();
+  }
+}
+```
