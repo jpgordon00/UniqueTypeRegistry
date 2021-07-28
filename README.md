@@ -1,5 +1,5 @@
 # UniqueTypeRegistry
-A design pattern and C# implementation for defining and creating types a constant list of types.
+A design pattern and C# implementation for defining and creating types from a constant list of types.
 
 ## What is a singleton-type design pattern?
 * Instead of defining a constant list of subclasses, this allows you to create new classes that subclass one file and that are automatically apart of a searchable list.
