@@ -35,6 +35,7 @@ class Server : {
     -  The "Find" and "FindAll" fuctions return a reference to the same object living in UniqueTypeRegistry.Types.
 
 ## The approach using UniqueTypeRegistry
+Below is a simple example of using UniqueTypeRegistry.cs.
 ```c#
 class Mode : UniqueTypeRegistry {
   ...
@@ -52,3 +53,7 @@ class Server : {
   }
 }
 ```
+
+Below is an example of how you can use BaseType to keep certain types searchable
+
+Below is an example of how you can define 'Type' properties and how you can search by using strings.
