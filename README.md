@@ -29,7 +29,7 @@ class Server : {
 ## Why would I want this?
 * It's easier to subclass a single class than to create constant lists for each class you want singleton-types from.
 * Because all of the type storing is handled by UniqueTypeRegistry.cs, a single list can store many different unqiue types without compromising on speed. Type-lists are created immidetely upon application start, and all find operations are cached.
-* Types can further seperated into seperate searchable lists. UniqueTypeRegistry contains a virtual property, named 'BaseType', that ensures only matching 'BaseTypes' are matched. For example, classes with BaseType="car" will all be matched together and exclude all BaseTypes="motorcyle".
+* Types can be further seperated into seperate searchable lists. UniqueTypeRegistry contains a virtual property, named 'BaseType', that ensures only matching 'BaseTypes' are matched. For example, classes with BaseType="car" will all be matched together and exclude all BaseTypes="motorcyle".
     - BaseType can be ignored for Find to match all subclasses of UniqueTypeRegistry.
 * Not only is there a cached-list of subclasses of a given type, but there's also a function to get a subclass of UniqueTypeRegistry given its classname or Type property.
     -  The "Find" and "FindAll" fuctions return a reference to the same object living in UniqueTypeRegistry.Types.
@@ -54,6 +54,6 @@ class Server : {
 }
 ```
 
-Below is an example of how you can use BaseType to keep certain types searchable
+Below is an example of how you can use the 'BaseType' property to keep seperate types seperate searchable lists.
 
 Below is an example of how you can define 'Type' properties and how you can search by using strings.
