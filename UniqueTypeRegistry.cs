@@ -108,7 +108,7 @@ namespace BeastBear {
 			True to match by classname instead of Type
 		*/
 		public virtual bool MatchClassName {
-            get => true;
+            get => Type == null;
         }
 
         // matched by this string or classname
