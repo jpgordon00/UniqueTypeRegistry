@@ -31,7 +31,7 @@ class Server : {
 * Because all of the type storing is handled by UniqueTypeRegistry.cs, a single list can store many different unqiue types without compromising on speed. Type-lists are created immidetely upon application start, and all find operations are cached.
 * Types can further seperated into seperate searchable lists. UniqueTypeRegistry contains a virtual property, named 'BaseType', that ensures only matching 'BaseTypes' are matched. For example, classes with BaseType="car" will all be matched together and exclude all BaseTypes="motorcyle".
     - BaseType can be ignored for Find to match all subclasses of UniqueTypeRegistry.
-* Not only a cached-list of subclasses of a given type, but there's also a function to get a subclass of UniqueTypeRegistry given its classname or Type property.
+* Not only is there a cached-list of subclasses of a given type, but there's also a function to get a subclass of UniqueTypeRegistry given its classname or Type property.
     -  The "Find" and "FindAll" fuctions return a reference to the same object living in UniqueTypeRegistry.Types.
 
 ## The approach using UniqueTypeRegistry
