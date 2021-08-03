@@ -18,6 +18,8 @@ namespace BeastBear {
 		// shortcut to all 'BaseTypes'
         public static List<string> AllBaseTypes = new List<string>();
 
+	    	// find all subclasses of UniquieTypeRegistry to fill 'types'
+	        // fill 'AllTypes' and 'AllBaseTypes'
 		 static UniqueTypeRegistry() {
 			types = typeof(UniqueTypeRegistry)
     		.Assembly.GetTypes().Where(t => t.IsSubclassOf(typeof(UniqueTypeRegistry)) && !t.IsAbstract).Select(t => (UniqueTypeRegistry)Activator.CreateInstance(t));
