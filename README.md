@@ -64,7 +64,7 @@ Below is another example, this time modeling weapons in a general game. Tthe pro
 
 note: We use virtual methods here instead of abstract ones so we can use the abstract class as a type parameter in Find and FindAll.
 ```c#
-abstract class Weapon : UniqueTypeRegistry {
+class Weapon : UniqueTypeRegistry {
   public virtual void OnSelect(){}
   public virtual void OnPutAway(){}
   public virtual void Tick(bool firing){}
