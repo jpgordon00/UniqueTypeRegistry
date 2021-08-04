@@ -96,11 +96,12 @@ namespace BeastBear {
 
         /*
         	True to ignore in 'Find/FindAll' and in AllTypes
-        	By default is only true when Type is null 
+        	By default is only true when Type is null
+            Set to false if going to use classnames instead of string overrides
         */
         public virtual bool BaseOnly {
             get {
-                return Type == null;
+                return false;
             }
         }
 
