@@ -56,7 +56,7 @@ namespace BeastBear {
                     }
                     i += 1;
                 }
-                if (i != types.Count) findCache.Add(key, i); // don't add invalid results to cache
+                if (i != types.ToList().Count) findCache.Add(key, i); // don't add invalid results to cache
             } else {
                 // case: find from cache
                 found = types.ElementAt(findCache[key]);
