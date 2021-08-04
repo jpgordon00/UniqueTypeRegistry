@@ -61,11 +61,13 @@ class Server : {
 ```
 
 Below is another example, this time modeling weapons in a general game. Tthe programmer can add more subclasses of 'Weapon' and use the new classes by referencing their classname by a string. Often I've had to hard-code the instantation of subclassed objects from serialized data (a network stream, JSON data etc.), and as I add new subclasses, its been cumbersome to remember to update the object instantiations. For example, you may be instantiating a Weapon by name, index or a binary number. Anything you can serialize to a string you can use to instantiate a subclass of Weapon.
+
+note: We use virtual methods here instead of abstract ones so we can use the abstract class as a type parameter in Find and FindAll.
 ```c#
 abstract class Weapon : UniqueTypeRegistry {
-  public abstract void OnSelect();
-  public abstract void OnPutAway();
-  public abstract void Tick(bool firing);
+  public virtual void OnSelect(){}
+  public virtual void OnPutAway(){}
+  public virtual void Tick(bool firing){}
 }
 
 // a sword
