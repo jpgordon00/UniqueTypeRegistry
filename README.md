@@ -92,7 +92,7 @@ class Sword : Weapon {
 // a gun
 class Gun : Weapon {
 
-  // some example properties that apply to the sword only
+  // some example properties that apply to the gun only
   int damage = 10;
   int numBullets = 100;
   float firingTime = 0.5f;
