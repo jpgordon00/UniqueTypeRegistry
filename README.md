@@ -21,7 +21,9 @@ class Server : {
   static Server() {
     List<Mode> Modes = new List<Mode>{new PreMode(), new PostMode()};
   
-    // do something with your list of server modes
+    // select a mode to use by string
+    // search through all the modes
+    // do something with subclasses of 'Mode'!
   }
 }
 ```
@@ -57,6 +59,75 @@ class Server : {
   }
 }
 ```
+
+Below is another example, this time modeling weapons in a general game. Tthe programmer can add more subclasses of 'Weapon' and use the new classes by referencing their classname by a string. Often I've had to hard-code the instantation of subclassed objects from serialized data (a network stream, JSON data etc.), and as I add new subclasses, its been cumbersome to remember to update the object instantiations. For example, you may be instantiating a Weapon by name, index or a binary number. Anything you can serialize to a string you can use to instantiate a subclass of Weapon.
+```c#
+abstract class Weapon : UniqueTypeRegistry {
+  public abstract void OnSelect();
+  public abstract void OnPutAway();
+  public abstract void Tick(bool firing);
+}
+
+// a sword
+class Sword : Weapon {
+
+  // some example properties that apply to the sword only
+  int damage = 10;
+  float swingTime = 2.5f;
+
+  public override void OnSelect() {
+    // do something
+  }
+  
+  public override void OnPutAway() {
+    // do something
+  }
+  
+  public override void Tick(bool firing) {
+    // do something
+  }
+  
+}
+
+// a gun
+class Gun : Weapon {
+
+  // some example properties that apply to the sword only
+  int damage = 10;
+  int numBullets = 100;
+  float firingTime = 0.5f;
+
+  public override void OnSelect() {
+    // do something
+  }
+  
+  public override void OnPutAway() {
+    // do something
+  }
+  
+  public override void Tick(bool firing) {
+    // do something
+  }
+  
+}
+
+// a player using the weapon
+// could be a subclass of MonoBehavior maybe
+class Player : {
+
+  // this could be changed by the Unity editor
+  // this could by sent by a binary stream
+  // this could be read by Json
+  public string WeaponType = "Sword"; 
+  
+  // assume this is being ticked
+  public void Tick() {
+    Weapon w = UniqueTypeRegistry.Find<Weapon(WeaponType);
+    w.Tick();
+  }
+  
+  // by using WeaponType, w can invoke OnPutAway and OnSelect too
+}
 
 Below is an example of how you can use the 'BaseType' property to keep seperate types seperate searchable lists.
 
