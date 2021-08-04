@@ -123,7 +123,7 @@ class Player : {
   // assume this is being ticked
   public void Tick() {
     Weapon w = UniqueTypeRegistry.Find<Weapon(WeaponType);
-    w.Tick();
+    w.Tick(true);
   }
   
   // by using WeaponType, w can invoke OnPutAway and OnSelect too
