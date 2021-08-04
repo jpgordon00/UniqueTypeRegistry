@@ -122,7 +122,7 @@ class Player {
   
   // assume this is being ticked
   public void Tick() {
-    Weapon w = UniqueTypeRegistry.Find<Weapon(WeaponType);
+    Weapon w = UniqueTypeRegistry.Find<Weapon>(WeaponType);
     w.Tick(true);
   }
   
