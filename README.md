@@ -128,7 +128,7 @@ class Player {
   
   // by using WeaponType, w can invoke OnPutAway and OnSelect too
 }
-
+```
 Below is an example of how you can use the 'BaseType' property to keep seperate types seperate searchable lists.
 
 Below is an example of how you can define 'Type' properties and how you can search by using strings.
