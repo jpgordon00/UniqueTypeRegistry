@@ -35,7 +35,7 @@ class Server : {
     -  The "Find" and "FindAll" fuctions return a reference to the same object living in UniqueTypeRegistry.Types.
 
 ## The approach using UniqueTypeRegistry
-Below is a simple example of using UniqueTypeRegistry.cs.
+Below is a simple example of using UniqueTypeRegistry.cs to find all subclasses, and to find specific subclasses by string.
 ```c#
 class Mode : UniqueTypeRegistry {
   ...
@@ -49,7 +49,11 @@ class PostMode : Mode {
 
 class Server : {  
   static Server() {
-    List<Mode> Modes = UniqueTypeRegistry.FindAll<Mode>();
+    List<Mode> Modes = UniqueTypeRegistry.FindAll<Mode>(); // list of all subclasses of mode
+    
+    // find mode by classname
+    PreMode mode = (PreMode) UniqueTypeRegistry.Find<Mode>("PreMode");
+    PostMode mode = (PreMode) UniqueTypeRegistry.Find<Mode>("PostMode");
   }
 }
 ```
@@ -57,3 +61,6 @@ class Server : {
 Below is an example of how you can use the 'BaseType' property to keep seperate types seperate searchable lists.
 
 Below is an example of how you can define 'Type' properties and how you can search by using strings.
+
+## Unit Tests
+Unit tests are coming soon.
