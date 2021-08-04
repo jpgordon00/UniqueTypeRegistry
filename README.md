@@ -113,7 +113,7 @@ class Gun : Weapon {
 
 // a player using the weapon
 // could be a subclass of MonoBehavior maybe
-class Player : {
+class Player {
 
   // this could be changed by the Unity editor
   // this could by sent by a binary stream
