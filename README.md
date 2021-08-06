@@ -21,8 +21,8 @@ class Server : {
   static Server() {
     List<Mode> Modes = new List<Mode>{new PreMode(), new PostMode()};
   
-    // select a mode to use by string
-    // search through all the modes
+    // select a mode to use by matching each mode's classname to a string
+    // search through all the modes and match by index ?
     // do something with subclasses of 'Mode'!
   }
 }
@@ -54,8 +54,9 @@ class Server : {
     List<Mode> Modes = UniqueTypeRegistry.FindAll<Mode>(); // list of all subclasses of mode
     
     // find mode by classname
-    PreMode mode = (PreMode) UniqueTypeRegistry.Find<Mode>("PreMode");
-    PostMode mode = (PreMode) UniqueTypeRegistry.Find<Mode>("PostMode");
+    // note you don't need to cast polymorphic return types
+    PreMode mode = UniqueTypeRegistry.Find<Mode>("PreMode");
+    PostMode mode = UniqueTypeRegistry.Find<Mode>("PostMode");
   }
 }
 ```
@@ -124,12 +125,14 @@ class Player {
   public string WeaponType = "Sword"; 
   
   // assume this is being ticked
+  // invok Weapon.Tick()
   public void Tick() {
     Weapon w = UniqueTypeRegistry.Find<Weapon>(WeaponType);
+    if (w == null) return; // case: WeaponType is not an existing classname
     w.Tick(true);
   }
   
-  // by using WeaponType, w can invoke OnPutAway and OnSelect too
+  // invoke other functions of Weapon based on WeaponType
 }
 ```
 Below is an example of how you can use the 'BaseType' property to keep seperate types seperate searchable lists.
