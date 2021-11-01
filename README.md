@@ -31,6 +31,7 @@ class Server : {
 ## Why would I want this?
 * It's easier to subclass a single class than to create constant lists for each class you want singleton-types from.
 * Because all of the type storing is handled by UniqueTypeRegistry.cs, a single list can store many different unqiue types without compromising on speed. Type-lists are created immidetely upon application start, and all find operations are cached.
+> This may be an inherit weakness in this module compared to a singleton.
 * Types can be further seperated into seperate searchable lists. UniqueTypeRegistry contains a virtual property, named 'BaseType', that ensures only matching 'BaseTypes' are matched. For example, classes with BaseType="car" will all be matched together and exclude all BaseTypes="motorcyle".
     - BaseType can be ignored for Find to match all subclasses of UniqueTypeRegistry.
 * Not only is there a cached-list of subclasses of a given type, but there's also a function to get a subclass of UniqueTypeRegistry given its classname or Type property.
