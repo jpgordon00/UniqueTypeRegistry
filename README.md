@@ -139,5 +139,9 @@ Below is an example of how you can use the 'BaseType' property to keep seperate 
 
 Below is an example of how you can define 'Type' properties and how you can search by using strings.
 
+## Remarks
+- All children of UniqueTypeRegistry get instances created and stored in 'UniqueTypeRegistry.types'.
+> This is called implicit construction, and can be disabled via a UniqueTypeRegistry property named 'ImplicitConstruction'. By overriding this bool to point towards "false", the developer must implicitly add instances of UniqueTypeRegistry to 'UniqueTypeRegistry.types'. The developer can also create or delete instances manually by specyfing a generic type for the static functions in UniqueTypeRegistry named 'InstantiateImplicits' and 'DestroyImplicits'.
+
 ## Unit Tests
 Unit tests are coming soon.
