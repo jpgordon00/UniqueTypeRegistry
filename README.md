@@ -1,3 +1,6 @@
+# CSharpSingleton
+This repository has been REPLACED by [CSharpSingleton](https://github.com/jpgordon00/CSharpSingleton/tree/main). 
+
 # UniqueTypeRegistry
 A design pattern and C# implementation for defining and creating types from a constant list of types.
 
